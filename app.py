@@ -24,6 +24,15 @@ def analyse():
     print("retuning response")
     return build_json_response(result_dict)
 
+@app.route("/", methods=["GET"])
+def hello():
+   return '''<html>
+   <head><title>My first Python CGI app</title></head>
+   <body>
+   <p>Hello, 'world'!</p>
+   </body>
+   </html>'''
+
 if __name__ == '__main__':
-    #app.run()
     serve(app, host="0.0.0.0", port=8000)
+    print("Application started")
