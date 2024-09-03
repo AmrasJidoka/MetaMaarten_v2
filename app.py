@@ -1,10 +1,9 @@
-import os
 from flask import Flask, request
+from waitress import serve
 
 from Analyzers.offerte import parse_offerte_file
 from chatmodels.openai_chat import init_azure_chat
 from file_storage.file_storage import Document
-from dotenv import load_dotenv
 
 from responses.json_response import build_json_response
 from tools.custom.model import init_custom_ocr_tool
@@ -26,4 +25,5 @@ def analyse():
     return build_json_response(result_dict)
 
 if __name__ == '__main__':
-    app.run()
+    #app.run()
+    serve(app, host="0.0.0.0", port=8000)
