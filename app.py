@@ -14,12 +14,15 @@ app = Flask(__name__)
 
 @app.route('/analyse', methods=['POST'])
 def analyse():
+    print('Starting analyse')
     with Document(request.files["file"]) as document:
+        print("setting up ocr and model")
         ocr = init_custom_ocr_tool()
         model = init_azure_chat()
 
+        print("parsing file")
         result_dict = parse_offerte_file(document.filename, model, ocr)
-
+    print("retuning response")
     return build_json_response(result_dict)
 
 if __name__ == '__main__':
