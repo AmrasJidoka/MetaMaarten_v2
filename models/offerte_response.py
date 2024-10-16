@@ -20,6 +20,6 @@ class Offerte(BaseModel):
     lijnitems: List[Lijnitem] = Field(
         description=descriptions.lijnitems
     )
-    rawOutput: str = Field(
-        description=descriptions.raw
-    )
+ #   rawOutput: str = Field(
+ #       description=descriptions.raw
+ #   )

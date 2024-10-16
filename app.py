@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, request
 from waitress import serve
 
@@ -21,7 +23,7 @@ def analyse():
 
         print("parsing file")
         result_dict = parse_offerte_file(document.filename, model, ocr)
-    print("retuning response")
+    print("returning response")
     return build_json_response(result_dict)
 
 @app.route("/", methods=["GET"])
