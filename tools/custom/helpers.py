@@ -12,6 +12,5 @@ def init_document_analysis_client():
     )
 
 def _get_azure_credentials():
-    #key = get_from_env("azure_cogs_key", "DI_KEY")
-    key = "b61095b513334edea3118975f553ed49"
+    key = get_from_env("azure_cogs_key", "DI_KEY")
     return AzureKeyCredential(key)
