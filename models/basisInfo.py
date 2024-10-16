@@ -3,18 +3,18 @@ from datetime import date
 
 class BasisInfo(BaseModel):
     auteur: str = Field(
-        description="name of a company that is the sender of the document"
+        description="De naam van het bedrijf dat dit document heeft opgesteld"
     )
     datum: date = Field(
-        description="the date at which the quotation was issued or sent"
+        description="De datum waarop dit document is opgesteld. Deze mag niet handgeschreven zijn en geen stempel"
     )
     documentNummer: str = Field(
-        description="a unique identifier or reference for the quotation"
+        description="unieke identificatie voor dit document"
     )
     typeDocument: str = Field(
-        description="Type of invoice. usually called offerte or factuur"
+        description="document type: factuur of offerte"
     )
     leveringsconditie: str = Field(
-        description="conditions and information pertaining the delivery of goods and/or service."
+        description="condities en informatie over de levering of afhaling van de goederen of diensten in dit document"
     )
     

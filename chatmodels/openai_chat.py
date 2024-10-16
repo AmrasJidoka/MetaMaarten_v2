@@ -9,4 +9,5 @@ def init_azure_chat() -> AzureChatOpenAI:
         openai_api_version=configuration["openai_api_version"],
         deployment_name=configuration["deployment_name"],
         temperature=0,
+        api_key = configuration["api_key"],
     )

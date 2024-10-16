@@ -3,51 +3,48 @@ from langchain.pydantic_v1 import BaseModel, Field
 class Lijnitem(BaseModel):
     omschrijving: str = Field(
         description=(
-            "description of a good and/or a service provided by the company."
-            "this can span multiple lines."
-            "sometimes it's a full sentence."
-            "this means that you cannot mix up sentences."
-            "Information regarding the location has to be left out."
+            "beschrijving van het goed of de dienst, dit kan meerdere lijnen zijn."
+            "Wanneer er geen prijs of hoeveelheid langs de omschrijving regel staan, hoort dit nog bij het huidige goed of dienst."
+            "Je mag niets weglaten, alles moet letterlijk overgenomen worden."
             )
     )
     extraInfo: str = Field(
         description=(
-            "additional info about the good and/or service provided by the company."
-            "Often in a separate line, area or table cell."
+            "Additionele informatie over het goed of dienst."
             "Sometimes this is placed between brackets or parenthesis after the initial description."
         )
     )
     aantal: str = Field(
         description=(
-            "the quantity of the good and/or service provided by the company."
-            "Often called: aantal or hoeveelheid."
+            "Het aantal of de hoeveelheid van de dienst of het goed."
         )
     )
     eenheid: str = Field(
-        description="the unit of measure of the good and/or service provided by the company."
+        description="De eenheid waarin het goed of de dienst verkocht wordt."
     )
     prijs: str = Field(
         description=(
-            "the unit price of the good and/or service provided by the company."
-            "this can be the same as the total amount when the quantity of the good is one."
-            "usually called: eenheidsprijs, eenh. prijs, unit price, eenh. pr."
-            "The decimal sign is always a comma, and needs to be replaced by a comma when it isn't."
-            "The thousands separator is always a dot, and need to be replaced by a dot when it isn't."
+            "De eenheidsprijs van het goed of de dienst. Voorbeelden van deze benaming: eenh. pr.; unit price; prijs; pr."
+            "Het decimaal teken is altijd een komma, je moet dit vervangen wanneer het een punt is."
+            "Duizendtallen worden gescheiden door een punt, je moet dit toevoegen als dit ontbreekt."
         )
     )
     korting: str = Field(
         description=(
-            "A reduction, usually in the form of a percentage."
-            "If there is none to be found, or if it's o, return an empty string."
+            "Vermindering in prijs, meestal uitgedrukt in een percentage."
+            "Als er geen korting is, of de korting is 0, dan moet je een lege string teruggeven."
         )
     )
     prijsKorting: str = Field(
         description=(
-            "the unit price of the good and/or service provided by the company."
-            "reduced with the reduction found in the document."
-            "this reduction can be specific per unit price, but can also apply on the whole document."
-            "Please calculate this yourself with the found reduction and unit price, since this price is never present in the document."
-            "Only execute this when there is a reduction found in the document."
-            "if the calculated number is the same as the price, return an empty string here."
+            "Eenheidsprijs van het goed of de dienst, verminderd met de korting."
+            "De korting kan per lijn opgegeven zijn of op de totaalprijs zijn toegepast."
+            "Bereken de individuele korting zelf met de gevonden korting en de standaard eenheidsprijs."
+            "Dit moet je alleen uitvoeren als er een korting gevonden is."
         )    
+    )
+
+    chapter: str = Field(
+        description=
+            ""
     )

@@ -1,5 +1,4 @@
 from azure.ai.documentintelligence import DocumentIntelligenceClient
-from azure.ai.documentintelligence.models import AnalyzeResult
 from tools.custom.helpers import init_document_analysis_client
 from langchain_core.runnables import Runnable, RunnableConfig
 from typing import Optional, Any

@@ -1,5 +1,5 @@
-from document_analyzer.configuration import get_configuration
 from langchain.tools.azure_cognitive_services import AzureCogsFormRecognizerTool
+from configuration import get_configuration
 
 
 def init_langchain_ocr_tool():
